@@ -7,6 +7,14 @@ namespace JinJooYoung
 {
     public static class MyTween
     {
+        public enum SlideDirection
+        {
+            Left,
+            Right,
+            Top,
+            Bottom
+        }
+
         static readonly Dictionary<RectTransform, Vector3> originalScales = new();
         static readonly Dictionary<RectTransform, Vector2> originalPositions = new();
 
@@ -82,9 +90,41 @@ namespace JinJooYoung
         // Slide
         //==============================
 
-        public static Tween SlideIn(RectTransform rect, Vector2 startPos, Vector2 targetPos, float duration)
+        public static Tween SlideIn(RectTransform rect, SlideDirection direction, float distance = 1000f, float duration = 0.4f)
         {
             rect.DOKill();
+
+            if (!originalPositions.ContainsKey(rect))
+            {
+                originalPositions.Add(
+                    rect,
+                    rect.anchoredPosition);
+            }
+
+            Vector2 targetPos =
+                originalPositions[rect];
+
+            Vector2 startPos =
+                targetPos;
+
+            switch (direction)
+            {
+                case SlideDirection.Left:
+                    startPos += Vector2.left * distance;
+                    break;
+
+                case SlideDirection.Right:
+                    startPos += Vector2.right * distance;
+                    break;
+
+                case SlideDirection.Top:
+                    startPos += Vector2.up * distance;
+                    break;
+
+                case SlideDirection.Bottom:
+                    startPos += Vector2.down * distance;
+                    break;
+            }
 
             rect.anchoredPosition = startPos;
 
@@ -93,9 +133,38 @@ namespace JinJooYoung
                 .SetEase(Ease.OutBack);
         }
 
-        public static Tween SlideOut(RectTransform rect, Vector2 targetPos, float duration)
+        public static Tween SlideOut(RectTransform rect, SlideDirection direction, float distance = 1000f, float duration = 0.3f)
         {
             rect.DOKill();
+
+            if (!originalPositions.ContainsKey(rect))
+            {
+                originalPositions.Add(
+                    rect,
+                    rect.anchoredPosition);
+            }
+
+            Vector2 targetPos =
+                originalPositions[rect];
+
+            switch (direction)
+            {
+                case SlideDirection.Left:
+                    targetPos += Vector2.left * distance;
+                    break;
+
+                case SlideDirection.Right:
+                    targetPos += Vector2.right * distance;
+                    break;
+
+                case SlideDirection.Top:
+                    targetPos += Vector2.up * distance;
+                    break;
+
+                case SlideDirection.Bottom:
+                    targetPos += Vector2.down * distance;
+                    break;
+            }
 
             return rect
                 .DOAnchorPos(targetPos, duration)
