@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 985b562a3867ff44ba1ceb63aeeee7c5
+guid: 635f9eb44cf55434aa829a7ed5254846
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8122256234953540473
-    second: EXP_0
+      213: -2282683577905505837
+    second: Radar Chart Background_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 150
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: EXP_0
+      name: Radar Chart Background_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 136
-        height: 84
+        x: 19
+        y: 77
+        width: 782
+        height: 743
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 78c74e4ecf2f74f80800000000000000
-      internalID: -8122256234953540473
+      spriteID: 3d9135c41674250e0800000000000000
+      internalID: -2282683577905505837
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      EXP_0: -8122256234953540473
+      Radar Chart Background_0: -2282683577905505837
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

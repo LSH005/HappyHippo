@@ -1,13 +1,16 @@
 fileFormatVersion: 2
-guid: ded7a103528aaef498f974bce3802887
+guid: be3564b67d73de349b1871ba69114074
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5806247343882902020
-    second: Pencil_0
+      213: 7918777910783842704
+    second: Will Icon_0
   - first:
-      213: 1293756167019915248
-    second: Pencil_1
+      213: -5325571673429521730
+    second: Will Icon_1
+  - first:
+      213: -6475317381340442841
+    second: Will Icon_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,12 +52,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 85
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pencil_0
+      name: Will Icon_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 81
-        height: 81
+        y: 34
+        width: 55
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +121,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 40a123a423fe39050800000000000000
-      internalID: 5806247343882902020
+      spriteID: 0991b7bed8625ed60800000000000000
+      internalID: 7918777910783842704
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pencil_1
+      name: Will Icon_1
       rect:
         serializedVersion: 2
-        x: 54
-        y: 55
-        width: 46
-        height: 45
+        x: 2
+        y: 21
+        width: 53
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +143,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0f76139116854f110800000000000000
-      internalID: 1293756167019915248
+      spriteID: ebac95377c4c716b0800000000000000
+      internalID: -5325571673429521730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Will Icon_2
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 0
+        width: 37
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72f4a4d362d0326a0800000000000000
+      internalID: -6475317381340442841
       vertices: []
       indices: 
       edges: []
@@ -150,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Pencil_0: 5806247343882902020
-      Pencil_1: 1293756167019915248
+      Will Icon_0: 7918777910783842704
+      Will Icon_1: -5325571673429521730
+      Will Icon_2: -6475317381340442841
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

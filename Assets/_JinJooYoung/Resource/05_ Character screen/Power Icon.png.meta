@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: bcf1860327d282843a6a033520cf5b1b
+guid: a0593253982f016428ce4ab40b3366ad
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4432793351920879750
-    second: Hearts_0
+      213: 8938792995825297695
+    second: Power Icon_0
+  - first:
+      213: -2565454141731699919
+    second: Power Icon_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +49,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 73
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Hearts_0
+      name: Power Icon_0
       rect:
         serializedVersion: 2
-        x: 22
-        y: 38
-        width: 149
-        height: 129
+        x: 0
+        y: 6
+        width: 67
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 68805ff4112748d30800000000000000
-      internalID: 4432793351920879750
+      spriteID: f19aae4bed8fc0c70800000000000000
+      internalID: 8938792995825297695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Power Icon_1
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 0
+        width: 36
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 133078aec0da56cd0800000000000000
+      internalID: -2565454141731699919
       vertices: []
       indices: 
       edges: []
@@ -125,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Hearts_0: 4432793351920879750
+      Power Icon_0: 8938792995825297695
+      Power Icon_1: -2565454141731699919
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

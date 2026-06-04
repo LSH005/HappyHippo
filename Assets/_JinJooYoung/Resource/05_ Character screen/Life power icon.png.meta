@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 44fa57b70f2d9634094054ad496b64d6
+guid: a935f0bf0c7a5a441b9055693b01b3a9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 829300191300648859
-    second: Shield Icon_0
+      213: -4843266955371459465
+    second: Life power icon_0
+  - first:
+      213: 6606914490476973835
+    second: Life power icon_1
+  - first:
+      213: -4041737798550481511
+    second: Life power icon_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +52,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 150
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Shield Icon_0
+      name: Life power icon_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 66
-        height: 76
+        width: 68
+        height: 75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b9f73a25124428b00800000000000000
-      internalID: 829300191300648859
+      spriteID: 77c42b46d5249ccb0800000000000000
+      internalID: -4843266955371459465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Life power icon_1
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 40
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0fc24269b970bb50800000000000000
+      internalID: 6606914490476973835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Life power icon_2
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 0
+        width: 69
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9951122e2ecd8e7c0800000000000000
+      internalID: -4041737798550481511
       vertices: []
       indices: 
       edges: []
@@ -125,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Shield Icon_0: 829300191300648859
+      Life power icon_0: -4843266955371459465
+      Life power icon_1: 6606914490476973835
+      Life power icon_2: -4041737798550481511
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
