@@ -331,8 +331,8 @@ MonoBehaviour:
   m_text: "ABCDEFG HIJKLMN\n_______ _______\n\uAC00\uB098\uB2E4\uB77C\uB9C8\uBC14\uC0AC
     \uC544\uC790\uCC28\uCE74\uD0C0\uD30C\uD558\nPaperlogy-7Bold SDF"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5fa8d564f9c2497448add623e7a1db52, type: 2}
-  m_sharedMaterial: {fileID: -6305849483236507462, guid: 5fa8d564f9c2497448add623e7a1db52, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d362f77223c5ea14b97456769d56da99, type: 2}
+  m_sharedMaterial: {fileID: -4583487223480777348, guid: d362f77223c5ea14b97456769d56da99, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
