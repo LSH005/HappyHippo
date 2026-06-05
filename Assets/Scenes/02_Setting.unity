@@ -378,6 +378,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LeeSihyeon.FrameLimitButton
   thisButtonFrameLimit: 3
   selectedButtonBG: {fileID: 1932360716}
+  buttonText: {fileID: 798686633}
+  enableColor: {r: 0.24313726, g: 0.13725491, b: 0.20392157, a: 1}
+  disableColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &54919829
 GameObject:
   m_ObjectHideFlags: 0
@@ -1060,6 +1063,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LeeSihyeon.FrameLimitButton
   thisButtonFrameLimit: 2
   selectedButtonBG: {fileID: 1261677443}
+  buttonText: {fileID: 2141124239}
+  enableColor: {r: 0.24313726, g: 0.13725491, b: 0.20392157, a: 1}
+  disableColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &274833353
 GameObject:
   m_ObjectHideFlags: 0
@@ -1517,6 +1523,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LeeSihyeon.GraphicQualitySelectButton
   thisButtonQuality: 3
   selectedButtonBG: {fileID: 1041074422}
+  buttonText: {fileID: 5850038}
+  enableColor: {r: 0.24313726, g: 0.13725491, b: 0.20392157, a: 1}
+  disableColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &419140350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1686,7 +1695,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &456028462
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2216,6 +2225,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LeeSihyeon.FrameLimitButton
   thisButtonFrameLimit: 0
   selectedButtonBG: {fileID: 456778108}
+  buttonText: {fileID: 1163841215}
+  enableColor: {r: 0.24313726, g: 0.13725491, b: 0.20392157, a: 1}
+  disableColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &584193575
 GameObject:
   m_ObjectHideFlags: 0
@@ -2323,6 +2335,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LeeSihyeon.GraphicQualitySelectButton
   thisButtonQuality: 0
   selectedButtonBG: {fileID: 1007909785}
+  buttonText: {fileID: 557790228}
+  enableColor: {r: 0.24313726, g: 0.13725491, b: 0.20392157, a: 1}
+  disableColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &584193581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4177,6 +4192,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LeeSihyeon.GraphicQualitySelectButton
   thisButtonQuality: 1
   selectedButtonBG: {fileID: 671361089}
+  buttonText: {fileID: 2056028102}
+  enableColor: {r: 0.24313726, g: 0.13725491, b: 0.20392157, a: 1}
+  disableColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1268511647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4636,6 +4654,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LeeSihyeon.FrameLimitButton
   thisButtonFrameLimit: 1
   selectedButtonBG: {fileID: 1756510587}
+  buttonText: {fileID: 1574903521}
+  enableColor: {r: 0.24313726, g: 0.13725491, b: 0.20392157, a: 1}
+  disableColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1396521642
 GameObject:
   m_ObjectHideFlags: 0
@@ -6107,6 +6128,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LeeSihyeon.GraphicQualitySelectButton
   thisButtonQuality: 2
   selectedButtonBG: {fileID: 2146160900}
+  buttonText: {fileID: 706834139}
+  enableColor: {r: 0.24313726, g: 0.13725491, b: 0.20392157, a: 1}
+  disableColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2001420524
 MonoBehaviour:
   m_ObjectHideFlags: 0

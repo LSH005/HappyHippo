@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,11 @@ namespace LeeSihyeon
     {
         public GraphicQuality thisButtonQuality;
         public Image selectedButtonBG;
+
+        [Header("Text")]
+        public TextMeshProUGUI buttonText;
+        public Color enableColor;
+        public Color disableColor;
 
         Button button;
         Color originalBGColor;
@@ -24,6 +30,8 @@ namespace LeeSihyeon
                 disableBGColor = originalBGColor = selectedButtonBG.color;
                 disableBGColor.a = 0;
             }
+
+            if (buttonText == null) Debug.LogError(gameObject.name + "은(는) buttonText 가 할당되지 않음.");
         }
 
 
@@ -43,7 +51,22 @@ namespace LeeSihyeon
         public void SetSelectedWithGraphicQuality(GraphicQuality quality)
         {
             bool isSelected = quality == thisButtonQuality;
-            if (selectedButtonBG != null) selectedButtonBG.color = isSelected ? originalBGColor : disableBGColor;
+            if (buttonText == null || selectedButtonBG == null)
+            {
+                Debug.LogError(gameObject.name + "은(는) 필요한 컴포넌트가 할당되지 않음.");
+                return;
+            }
+
+            if (isSelected)
+            {
+                selectedButtonBG.color = originalBGColor;
+                buttonText.color = enableColor;
+            }
+            else
+            {
+                selectedButtonBG.color = disableBGColor;
+                buttonText.color = disableColor;
+            }
         }
     }
 }
