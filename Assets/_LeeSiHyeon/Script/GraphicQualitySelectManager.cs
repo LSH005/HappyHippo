@@ -1,16 +1,16 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum GraphicQuality
-{
-    Low,
-    Medium,
-    High,
-    Custom
-}
-
 namespace LeeSihyeon
 {
+    public enum GraphicQuality
+    {
+        Low,
+        Medium,
+        High,
+        Custom
+    }
+
     public class GraphicQualitySelectManager : MonoBehaviour
     {
         public static GraphicQualitySelectManager Instance { get; private set; }

@@ -3,9 +3,9 @@ using UnityEngine.UI;
 
 namespace LeeSihyeon
 {
-    public class GraphicQualitySelectButton : MonoBehaviour
+    public class FrameLimitButton : MonoBehaviour
     {
-        public GraphicQuality thisButtonQuality;
+        public FrameLimitLevel thisButtonFrameLimit;
         public Image selectedButtonBG;
 
         Button button;
@@ -26,7 +26,6 @@ namespace LeeSihyeon
             }
         }
 
-
         private void OnDisable()
         {
             if (button != null)
@@ -35,14 +34,11 @@ namespace LeeSihyeon
             }
         }
 
-        private void OnButtonClicked()
-        {
-            GraphicQualitySelectManager.Instance.SetGraphicQuality(thisButtonQuality);
-        }
+        private void OnButtonClicked() => FrameLimitButtonManager.Instance.SetFrameLimit(thisButtonFrameLimit);
 
-        public void SetSelectedWithGraphicQuality(GraphicQuality quality)
+        public void SetSelectedWithFrameLimit(FrameLimitLevel limit)
         {
-            bool isSelected = quality == thisButtonQuality;
+            bool isSelected = limit == thisButtonFrameLimit;
             if (selectedButtonBG != null) selectedButtonBG.color = isSelected ? originalBGColor : disableBGColor;
         }
     }
