@@ -4,7 +4,7 @@ public class MainMenuButtonManager : MonoBehaviour
 {
     public void GoToSettingScene()
     {
-        // 02_Setting 씬으로 이동하는 로직
+        SceneTransition.Instance.TransitionToScene("02_Setting");
     }
 
     public void GoToQuestScene()
