@@ -22,6 +22,7 @@ namespace LeeSihyeon
             if (rect == null || button == null)
             {
                 Debug.LogError(gameObject.name + "은(는) RectTransform 또는 Button 컴포넌트가 필요함.");
+                return;
             }
 
             originalScale = rect.localScale;
