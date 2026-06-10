@@ -59,23 +59,88 @@ namespace JinJooYoung
         // Popup
         //==============================
 
-        public static Sequence Popup(CanvasGroup group, RectTransform target, float duration = 0.3f)
+        public static Sequence OpenPopup(
+            CanvasGroup canvasGroup,
+            RectTransform popupBox,
+            Image dimmed,
+            float fadeDuration = 0.25f,
+            float scaleDuration = 0.35f,
+            float dimmedAlpha = 0.7f)
         {
-            group.DOKill();
-            target.DOKill();
+            canvasGroup.DOKill();
+            popupBox.DOKill();
 
-            group.alpha = 0f;
-            target.localScale = Vector3.zero;
+            if (dimmed != null)
+                dimmed.DOKill();
+
+            canvasGroup.alpha = 0f;
+            canvasGroup.interactable = true;
+            canvasGroup.blocksRaycasts = true;
+
+            popupBox.localScale = Vector3.zero;
 
             Sequence seq = DOTween.Sequence();
 
-            seq.Join(
-                group.DOFade(1f, duration));
+            if (dimmed != null)
+            {
+                seq.Join(
+                    dimmed.DOFade(
+                        dimmedAlpha,
+                        fadeDuration));
+            }
 
             seq.Join(
-                target
-                .DOScale(Vector3.one, duration)
+                canvasGroup.DOFade(
+                    1f,
+                    fadeDuration));
+
+            seq.Join(
+                popupBox
+                .DOScale(
+                    Vector3.one,
+                    scaleDuration)
                 .SetEase(Ease.OutBack));
+
+            return seq;
+        }
+
+        public static Sequence ClosePopup(
+            CanvasGroup canvasGroup,
+            RectTransform popupBox,
+            Image dimmed,
+            float fadeDuration = 0.2f,
+            float scaleDuration = 0.2f)
+        {
+            canvasGroup.DOKill();
+            popupBox.DOKill();
+
+            if (dimmed != null)
+                dimmed.DOKill();
+
+            canvasGroup.interactable = false;
+            canvasGroup.blocksRaycasts = false;
+
+            Sequence seq = DOTween.Sequence();
+
+            if (dimmed != null)
+            {
+                seq.Join(
+                    dimmed.DOFade(
+                        0f,
+                        fadeDuration));
+            }
+
+            seq.Join(
+                canvasGroup.DOFade(
+                    0f,
+                    fadeDuration));
+
+            seq.Join(
+                popupBox
+                .DOScale(
+                    Vector3.zero,
+                    scaleDuration)
+                .SetEase(Ease.InBack));
 
             return seq;
         }
@@ -92,6 +157,30 @@ namespace JinJooYoung
 
             return target
                 .DOAnchorPos(endPos, duration)
+                .SetEase(ease);
+        }
+
+        //==============================
+        // Move
+        //==============================
+
+        public static Tween MoveTo(RectTransform rect, Vector2 targetPos, float duration, Ease ease = Ease.OutCubic)
+        {
+            rect.DOKill();
+
+            return rect
+                .DOAnchorPos(targetPos, duration)
+                .SetEase(ease);
+        }
+
+        public static Tween RotateTo(RectTransform rect, float targetZ, float duration, Ease ease = Ease.OutCubic)
+        {
+            rect.DOKill();
+
+            return rect
+                .DOLocalRotate(
+                    new Vector3(0, 0, targetZ),
+                    duration)
                 .SetEase(ease);
         }
 
