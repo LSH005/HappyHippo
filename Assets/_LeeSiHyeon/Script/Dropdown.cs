@@ -53,6 +53,7 @@ namespace LeeSihyeon
         private void Start()
         {
             text.text = itemTexts.Length > 0 ? itemTexts[0] : "No Items";
+            DropdownManager.Instance.AddDropdown(this);
         }
 
         void OnClick()
@@ -60,14 +61,24 @@ namespace LeeSihyeon
             if (IsState(state.Opening) || IsState(state.Closing)) return;
             if (IsState(state.Open))
             {
-                StartCoroutine(Close());
-                SetState(state.Closing);
+                StartClosing();
             }
             else if (IsState(state.Close))
             {
-                StartCoroutine(Open());
-                SetState(state.Opening);
+                StartOpening();
             }
+        }
+
+        public void StartOpening()
+        {
+            StartCoroutine(Open());
+            SetState(state.Opening);
+        }
+
+        public void StartClosing()
+        {
+            StartCoroutine(Close());
+            SetState(state.Closing);
         }
 
         IEnumerator Open()
@@ -112,5 +123,10 @@ namespace LeeSihyeon
 
         bool IsState(state Comparator) => currntState == Comparator;
         void SetState(state newState) => currntState = newState;
+
+        private void OnDestroy()
+        {
+            DropdownManager.Instance.RemoveDropdown(this);
+        }
     }
 }
