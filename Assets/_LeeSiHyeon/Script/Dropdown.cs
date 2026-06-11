@@ -53,7 +53,7 @@ namespace LeeSihyeon
         private void Start()
         {
             text.text = itemTexts.Length > 0 ? itemTexts[0] : "No Items";
-            DropdownManager.Instance.AddDropdown(this);
+            if (DropdownManager.Instance) DropdownManager.Instance.AddDropdown(this);
         }
 
         void OnClick()
@@ -124,9 +124,6 @@ namespace LeeSihyeon
         bool IsState(state Comparator) => currntState == Comparator;
         void SetState(state newState) => currntState = newState;
 
-        private void OnDestroy()
-        {
-            DropdownManager.Instance.RemoveDropdown(this);
-        }
+        private void OnDestroy() { if (DropdownManager.Instance) DropdownManager.Instance.RemoveDropdown(this); }
     }
 }
