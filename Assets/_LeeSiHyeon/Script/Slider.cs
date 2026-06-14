@@ -21,6 +21,10 @@ namespace LeeSihyeon
 
         private System.Action<float> onValueChanged;
 
+        /// <summary>
+        /// 슬라이더의 현재 값.
+        /// 설정 시 <see cref="UpdateSliderUI"/> 및 이벤트 호출
+        /// </summary>
         public float Value
         {
             get
@@ -51,15 +55,22 @@ namespace LeeSihyeon
             onValueChanged?.Invoke(Value);
         }
 
+        /// <summary> <see cref="IPointerClickHandler"/>에 종속됨. 클릭 시 <see cref="UpdateSliderFromPointer"/> 호출 </summary>
+        /// <param name="eventData">포인터 이벤트 데이터</param>
         public void OnPointerDown(PointerEventData eventData)
         {
             UpdateSliderFromPointer(eventData);
         }
 
+        /// <summary> <see cref="IDragHandler"/>에 종속됨. 드래그 시 <see cref="UpdateSliderFromPointer"/> 호출 </summary>
+        /// <param name="eventData">포인터 이벤트 데이터</param>
         public void OnDrag(PointerEventData eventData)
         {
             UpdateSliderFromPointer(eventData);
         }
+
+        /// <summary> <paramref name="eventData"/>를 기반으로 슬라이더 비율 계산 및 UI 갱신 </summary>
+        /// <param name="eventData">포인터 이벤트 데이터</param>
         private void UpdateSliderFromPointer(PointerEventData eventData)
         {
             if (RectTransformUtility.ScreenPointToLocalPointInRectangle(bgRect, eventData.position, eventData.pressEventCamera, out Vector2 localPoint))
@@ -74,6 +85,7 @@ namespace LeeSihyeon
             }
         }
 
+        /// <summary> 현재 비율을 바탕으로 슬라이더 핸들 위치 및 채우기 이미지 갱신 </summary>
         private void UpdateSliderUI()
         {
             if (bgRect == null) return;
@@ -82,10 +94,7 @@ namespace LeeSihyeon
             float pivotOffset = width * bgRect.pivot.x;
 
             float displayPercent = rawPercent;
-            //if (isInteger && maxValue != minValue)
-            //{
-            //    displayPercent = (Value - minValue) / (maxValue - minValue);
-            //}
+            //if (isInteger && maxValue != minValue) displayPercent = (Value - minValue) / (maxValue - minValue);
 
             if (handleRect != null)
             {
@@ -96,7 +105,11 @@ namespace LeeSihyeon
             if (fillImage != null) fillImage.fillAmount = displayPercent;
         }
 
+        /// <summary> 값 변경 이벤트에 <paramref name="listener"/> 추가 </summary>
+        /// <param name="listener">추가할 콜백 함수</param>
         public void AddListener(System.Action<float> listener) => onValueChanged += listener;
+        /// <summary> 값 변경 이벤트에서 <paramref name="listener"/> 제거 </summary>
+        /// <param name="listener">제거할 콜백 함수</param>
         public void RemoveListener(System.Action<float> listener) => onValueChanged -= listener;
     }
 }

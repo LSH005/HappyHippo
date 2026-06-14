@@ -19,11 +19,8 @@ public class SceneTransition : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    /// <summary>
-    /// 씬 전환을 페이드 효과와 함께 수행. sceneName이 빌드 세팅에 존재하지 않으면 아무 동작도 하지 않음.
-    /// </summary>
-    /// <param name="sceneName">전환할 Scene의 이름</param>
-    /// <param name="fadeDuration">단일 페이드 효과의 지속 시간</param>
+    /// <summary> 페이드 효과와 함께 Scene 전환 </summary>
+    /// <param name="sceneName">전환할 Scene 이름</param>
     public void TransitionToScene(string sceneName)
     {
         if (curtain == null)
@@ -40,6 +37,8 @@ public class SceneTransition : MonoBehaviour
         StartCoroutine(TransitionCoroutine(sceneName));
     }
 
+    /// <summary> 페이드 인/아웃 및 씬 로드를 처리하는 코루틴 </summary>
+    /// <param name="sceneName">전환할 씬의 이름</param>
     IEnumerator TransitionCoroutine(string sceneName)
     {
         Transform canvasTransform = null;
@@ -71,11 +70,9 @@ public class SceneTransition : MonoBehaviour
         Destroy(currentCurtain, fadeDuration);
     }
 
-    /// <summary>
-    /// 씬에 존재하는 Canvas의 Transform을 반환.
-    /// </summary>
-    /// <param name="transform"></param>
-    /// <returns>아무 Canvas가 존재하면 true, 아니면 false</returns>
+    /// <summary> 씬에 존재하는 <see cref="Canvas"/>의 <see cref="Transform"/> 탐색 </summary>
+    /// <param name="transform">찾으면 해당 객체의 <see cref="Transform"/>, 아니면 <see langword="null"/></param>
+    /// <returns>캔버스가 존재하면 <see langword="true"/>, 아니면 <see langword="false"/></returns>
     bool TryGetCanvasTransform(out Transform transform)
     {
         Canvas canvas = FindAnyObjectByType<Canvas>();
@@ -90,11 +87,9 @@ public class SceneTransition : MonoBehaviour
         return false;
     }
 
-    /// <summary>
-    /// 씬 이름이 빌드 세팅에 존재하는지 확인
-    /// </summary>
+    /// <summary> <paramref name="sceneName"/>이 빌드 세팅에 존재하는지 확인 </summary>
     /// <param name="sceneName">검사할 Scene 이름</param>
-    /// <returns>sceneName을 이름으로 하는 Scene이 존재하면 true, 아니면 false</returns>
+    /// <returns>존재하면 <see langword="true"/>, 아니면 <see langword="false"/></returns>
     bool DoesSceneExist(string sceneName)
     {
         if (string.IsNullOrEmpty(sceneName)) return false;

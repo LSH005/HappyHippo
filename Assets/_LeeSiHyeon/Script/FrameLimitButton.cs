@@ -42,8 +42,11 @@ namespace LeeSihyeon
             }
         }
 
+        /// <summary> 버튼 클릭 시 <see cref="FrameLimitButtonManager.SetFrameLimit"/> 호출 </summary>
         private void OnButtonClicked() => FrameLimitButtonManager.Instance.SetFrameLimit(thisButtonFrameLimit);
 
+        /// <summary> 전달받은 <paramref name="limit"/>과 <see cref="thisButtonFrameLimit"/> 일치 여부에 따른 UI 갱신 </summary>
+        /// <param name="limit">비교할 <see cref="FrameLimitLevel"/>.</param>
         public void SetSelectedWithFrameLimit(FrameLimitLevel limit)
         {
             bool isSelected = limit == thisButtonFrameLimit;

@@ -3,7 +3,6 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEngine.Rendering.DebugUI.Table;
 
 namespace LeeSihyeon
 {
@@ -57,17 +56,21 @@ namespace LeeSihyeon
             items = new DropdownItem[itemTexts.Length];
         }
 
+        /// <summary> 버튼 클릭 이벤트. 상태에 따라 토글 열기 또는 닫기 수행 </summary>
         void OnClick()
         {
             OpenToggle();
         }
 
+        /// <summary> 현재 <see cref="IsOpen"/> 상태에 따라 <see cref="StartOpening"/> 또는 <see cref="StartClosing"/> 호출 </summary>
         public void OpenToggle()
         {
             if (IsOpen) StartClosing();
             else StartOpening();
         }
 
+        /// <summary> 드롭다운 열기 시작 </summary>
+        /// <param name="durationMultiplier">애니메이션 속도 배율.</param>
         public void StartOpening(float durationMultiplier = 1.0f)
         {
             StopAction(true);
@@ -78,6 +81,8 @@ namespace LeeSihyeon
             icon.DORotate(Vector3.forward * 180 * n, toggleDuration * durationMultiplier).SetEase(Ease.OutQuad);
         }
 
+        /// <summary> 드롭다운 닫기 시작 </summary>
+        /// <param name="durationMultiplier">애니메이션 속도 배율.</param>
         public void StartClosing(float durationMultiplier = 1.0f)
         {
             StopAction(false);
@@ -85,6 +90,9 @@ namespace LeeSihyeon
             icon.DORotate(Vector3.zero, toggleDuration * durationMultiplier).SetEase(Ease.OutQuad);
         }
 
+        /// <summary> 드롭다운 항목 생성 또는 삭제 애니메이션 코루틴 </summary>
+        /// <param name="open">열면 <see langword="true"/>, 닫으면 <see langword="false"/>.</param>
+        /// <param name="durationMultiplier">애니메이션 속도 배율.</param>
         IEnumerator DropdownAction(bool open, float durationMultiplier = 1)
         {
             float actionInterval = toggleDuration / itemTexts.Length;
@@ -119,12 +127,16 @@ namespace LeeSihyeon
             }
         }
 
+        /// <summary> 진행 중인 코루틴 중지 및 <see cref="IsOpen"/> 상태 갱신 </summary>
+        /// <param name="goingOpen">열리는 중이면 <see langword="true"/>, 아니면 <see langword="false"/>.</param>
         void StopAction(bool goingOpen)
         {
             IsOpen = goingOpen;
             if (dropdownActionCoroutine != null) StopCoroutine(dropdownActionCoroutine);
         }
 
+        /// <summary> 드롭다운 텍스트 설정 후 <see cref="StartClosing"/> 호출. </summary>
+        /// <param name="type">변경할 텍스트 내용.</param>
         public void SetText(string type)
         {
             text.text = type;

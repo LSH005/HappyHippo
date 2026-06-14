@@ -34,6 +34,7 @@ namespace LeeSihyeon
             button?.onClick.AddListener(DropdownManager.Instance.CloseAllDropdowns);
         }
 
+        /// <summary> 버튼 클릭 시 축소 및 확대 애니메이션 실행. </summary>
         public void PlayButtonEffect()
         {
             rect.DOKill();

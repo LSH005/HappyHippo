@@ -43,11 +43,14 @@ namespace LeeSihyeon
             }
         }
 
+        /// <summary> 버튼 클릭 시 <see cref="GraphicQualitySelectManager.SetGraphicQuality"/> 호출 </summary>
         private void OnButtonClicked()
         {
             GraphicQualitySelectManager.Instance.SetGraphicQuality(thisButtonQuality);
         }
 
+        /// <summary> 전달받은 <paramref name="quality"/>와 <see cref="thisButtonQuality"/> 일치 여부에 따른 UI 갱신 </summary>
+        /// <param name="quality">비교할 <see cref="GraphicQuality"/>.</param>
         public void SetSelectedWithGraphicQuality(GraphicQuality quality)
         {
             bool isSelected = quality == thisButtonQuality;

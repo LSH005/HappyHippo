@@ -46,6 +46,8 @@ namespace LeeSihyeon
             cg.DOFade(1, startActionDuration).SetEase(Ease.OutQuad);
         }
 
+        /// <summary> 항목 닫기 애니메이션 실행 후 객체 파괴 </summary>
+        /// <param name="actionDuration">애니메이션 소요 시간</param>
         public void Close(float actionDuration = 0)
         {
             if (isClosing || rect == null) return;
@@ -63,6 +65,7 @@ namespace LeeSihyeon
             seq.OnComplete(() => Destroy(gameObject));
         }
 
+        /// <summary> 애니메이션 없이 객체 즉시 파괴 </summary>
         public void CloseInstantly()
         {
             if (this == null || gameObject == null) return;
@@ -70,11 +73,11 @@ namespace LeeSihyeon
             Destroy(gameObject);
         }
 
-        public void SetText(string text)
-        {
-            textUI.text = text;
-        }
+        /// <summary> UI에 텍스트 적용 </summary>
+        /// <param name="text">표시할 문자열.</param>
+        public void SetText(string text) => textUI.text = text;
 
+        /// <summary> 항목 클릭 시 부모(<see cref="root"/>)의 텍스트 갱신. </summary>
         void OnClicked()
         {
             if (root != null && root.IsOpen) root.SetText(textUI.text);

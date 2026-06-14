@@ -54,6 +54,8 @@ namespace LeeSihyeon
 
         void Start() => InitEnable(EnableAsStart);
 
+        /// <summary> 초기 <paramref name="enable"/> 상태 설정 및 UI 즉시 갱신 </summary>
+        /// <param name="enable">활성화 여부</param>
         private void InitEnable(bool enable)
         {
             isEnable = enable;
@@ -66,10 +68,22 @@ namespace LeeSihyeon
             dot.anchoredPosition = enable ? dotPos : -dotPos;
         }
 
+        /// <summary> <see cref="isEnable"/> 상태를 반전시켜 <see cref="SetEnable(bool, bool)"/> 호출 </summary>
+        /// <param name="instant">즉시 반영할지 여부</param>
         public void Toggle(bool instant = false) => SetEnable(!isEnable, instant);
+        /// <summary> 지정된 <paramref name="enable"/> 상태로 스위치 변경 </summary>
+        /// <param name="enable">활성화 여부</param>
+        /// <param name="instant">즉시 반영할지 여부</param>
         public void SetEnable(bool enable, bool instant = false) => SetEnableState(enable, instant);
+        /// <summary> 콜백 없이 <paramref name="enable"/> 상태로 스위치 변경 </summary>
+        /// <param name="enable">활성화 여부</param>
+        /// <param name="instant">즉시 반영할지 여부</param>
         public void SetEnableWithNoCallback(bool enable, bool instant = false) => SetEnableState(enable, instant, false);
 
+        /// <summary> <paramref name="enable"/>로 토글 상태 변경, UI 애니메이션 처리 </summary>
+        /// <param name="enable">활성화 여부</param>
+        /// <param name="instant">즉시 반영할지 여부</param>
+        /// <param name="hasCallback">콜백을 호출할지 여부</param>
         void SetEnableState(bool enable, bool instant, bool hasCallback = true)
         {
             if (enable == isEnable) return;
@@ -95,7 +109,11 @@ namespace LeeSihyeon
             if (hasCallback) toggleListener?.Invoke(isEnable);
         }
 
+        /// <summary> 토글 상태 변경 이벤트에 <paramref name="listener"/> 추가 </summary>
+        /// <param name="listener">추가할 콜백 함수</param>
         public void AddToggleListener(System.Action<bool> listener) => toggleListener += listener;
+        /// <summary> 토글 상태 변경 이벤트에 <paramref name="listener"/> 제거</summary>
+        /// <param name="listener">제거할 콜백 함수</param>
         public void RemoveToggleListener(System.Action<bool> listener) => toggleListener -= listener;
         private void OnDestroy() => toggleListener = null;
     }

@@ -34,6 +34,8 @@ namespace LeeSihyeon
             SetGraphicQuality(GraphicQuality.High);
         }
 
+        /// <summary> 그래픽 품질 설정 및 프리뷰 이미지 갱신 </summary>
+        /// <param name="quality">적용할 <see cref="GraphicQuality"/>.</param>
         public void SetGraphicQuality(GraphicQuality quality)
         {
             foreach (var button in allButtons)
