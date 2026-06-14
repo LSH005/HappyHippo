@@ -29,6 +29,11 @@ namespace LeeSihyeon
             button.onClick.AddListener(PlayButtonEffect);
         }
 
+        private void Start()
+        {
+            button?.onClick.AddListener(DropdownManager.Instance.CloseAllDropdowns);
+        }
+
         public void PlayButtonEffect()
         {
             rect.DOKill();
@@ -40,10 +45,7 @@ namespace LeeSihyeon
 
         private void OnDestroy()
         {
-            if (button != null)
-            {
-                button.onClick.RemoveListener(PlayButtonEffect);
-            }
+            if (button != null) button.onClick.RemoveAllListeners();
         }
     }
 }

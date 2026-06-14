@@ -5,34 +5,33 @@ using UnityEngine.UI;
 
 namespace LeeSihyeon
 {
+    [RequireComponent(typeof(RectTransform))]
+    [RequireComponent(typeof(Button))]
+    [RequireComponent(typeof(CanvasGroup))]
     public class DropdownItem : MonoBehaviour
     {
-        public TextMeshProUGUI textUI;
-        public float actionDuration = 0.125f;
+        [SerializeField] private TextMeshProUGUI textUI;
+        public float startActionDuration = 0.125f;
         [HideInInspector] public Dropdown root;
         RectTransform rect;
+        CanvasGroup cg;
         Button button;
+        bool isClosing;
 
         private void Awake()
         {
             if (textUI == null)
             {
                 Debug.LogError(gameObject.name + "은(는) TextMeshProUGUI 컴포넌트가 할당되지 않음.");
+                this.enabled = false;
                 return;
             }
             rect = GetComponent<RectTransform>();
-            if (rect == null)
-            {
-                Debug.LogError(gameObject.name + "은(는) RectTransform 컴포넌트가 필요함.");
-                return;
-            }
             button = GetComponent<Button>();
-            if (button == null)
-            {
-                Debug.LogError(gameObject.name + "은(는) Button 컴포넌트가 필요함.");
-                return;
-            }
+            cg = GetComponent<CanvasGroup>();
+
             button.onClick.AddListener(OnClicked);
+            cg.alpha = 0f;
         }
 
         private void Start()
@@ -40,24 +39,50 @@ namespace LeeSihyeon
             rect.DOKill();
 
             Vector2 scale = rect.localScale;
-            scale.x = 0;
+            scale.y = 0;
             rect.localScale = scale;
 
-            rect.DOScaleX(1, actionDuration).SetEase(Ease.OutQuad);
+            rect.DOScaleY(1, startActionDuration).SetEase(Ease.OutQuad);
+            cg.DOFade(1, startActionDuration).SetEase(Ease.OutQuad);
         }
 
-        public void Close()
+        public void Close(float actionDuration = 0)
         {
+            if (isClosing || rect == null) return;
+            isClosing = true;
+
             rect.DOKill();
-            Sequence close = DOTween.Sequence();
-            close.SetLink(gameObject);
-            close.Append(rect.DOScaleY(0, actionDuration).SetEase(Ease.InQuad));
-            close.OnComplete(() => Destroy(gameObject));
+            cg.DOKill();
+            Sequence seq = DOTween.Sequence();
+            seq.Append(rect.DOScaleY(0, actionDuration)
+                .SetEase(Ease.InQuad)
+                .SetLink(gameObject));
+            seq.Join(cg.DOFade(0, actionDuration)
+                .SetEase(Ease.InQuad)
+                .SetLink(gameObject));
+            seq.OnComplete(() => Destroy(gameObject));
+        }
+
+        public void CloseInstantly()
+        {
+            if (this == null || gameObject == null) return;
+            if (rect != null) rect.DOKill();
+            Destroy(gameObject);
+        }
+
+        public void SetText(string text)
+        {
+            textUI.text = text;
         }
 
         void OnClicked()
         {
-            if (root != null) root.SetType(textUI.text);
+            if (root != null && root.IsOpen) root.SetText(textUI.text);
+        }
+
+        private void OnDestroy()
+        {
+            if (button != null) button.onClick.RemoveAllListeners();
         }
     }
 }

@@ -6,7 +6,7 @@ namespace LeeSihyeon
     {
         public void SettingExit()
         {
-            SceneTransition.Instance.TransitionToScene("01_Main");
+            SceneTransition.Instance?.TransitionToScene("01_Main");
         }
     }
 }

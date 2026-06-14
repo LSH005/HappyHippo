@@ -1,32 +1,31 @@
+using DG.Tweening;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI.Table;
 
 namespace LeeSihyeon
 {
     public class Dropdown : MonoBehaviour
     {
         public TextMeshProUGUI text;
+        [Header("Icon")]
+        public RectTransform icon;
         [Header("Items")]
         public DropdownItem itemPrefab;
         public Transform panel;
         public string[] itemTexts;
         [Header("Duration")]
-        public float toggleInterval = 0.1f;
+        public float toggleDuration = 0.1f;
         public float buttonActionDuration = 0.125f;
 
         Button button;
-        List<DropdownItem> items = new List<DropdownItem>();
-        enum state
-        {
-            Open,
-            Close,
-            Opening,
-            Closing
-        }
-        state currntState = state.Close;
+        DropdownItem[] items;
+        Coroutine dropdownActionCoroutine;
+        bool isOpen;
+        public bool IsOpen { get { return isOpen; } private set { isOpen = value; } }
+        int index;
 
         private void Awake()
         {
@@ -54,75 +53,83 @@ namespace LeeSihyeon
         {
             text.text = itemTexts.Length > 0 ? itemTexts[0] : "No Items";
             if (DropdownManager.Instance) DropdownManager.Instance.AddDropdown(this);
+
+            items = new DropdownItem[itemTexts.Length];
         }
 
         void OnClick()
         {
-            if (IsState(state.Opening) || IsState(state.Closing)) return;
-            if (IsState(state.Open))
-            {
-                StartClosing();
-            }
-            else if (IsState(state.Close))
-            {
-                StartOpening();
-            }
+            OpenToggle();
         }
 
-        public void StartOpening()
+        public void OpenToggle()
         {
-            StartCoroutine(Open());
-            SetState(state.Opening);
+            if (IsOpen) StartClosing();
+            else StartOpening();
         }
 
-        public void StartClosing()
+        public void StartOpening(float durationMultiplier = 1.0f)
         {
-            StartCoroutine(Close());
-            SetState(state.Closing);
-        }
-
-        IEnumerator Open()
-        {
+            StopAction(true);
             transform.SetAsLastSibling();
-
-            foreach (string text in itemTexts)
-            {
-                DropdownItem newItem = Instantiate(itemPrefab, panel);
-                newItem.textUI.text = text;
-                newItem.actionDuration = buttonActionDuration;
-                newItem.root = this;
-                items.Add(newItem);
-                yield return new WaitForSeconds(toggleInterval);
-            }
-
-            SetState(state.Open);
+            dropdownActionCoroutine = StartCoroutine(DropdownAction(true, durationMultiplier));
+            int randomStupidNumber = Random.Range(0, 250); // Wow!! Awesome logic!
+            int n = (randomStupidNumber * 2) + 1;
+            icon.DORotate(Vector3.forward * 180 * n, toggleDuration * durationMultiplier).SetEase(Ease.OutQuad);
         }
 
-        IEnumerator Close()
+        public void StartClosing(float durationMultiplier = 1.0f)
         {
-            if (items.Count > 0)
+            StopAction(false);
+            dropdownActionCoroutine = StartCoroutine(DropdownAction(false, durationMultiplier));
+            icon.DORotate(Vector3.zero, toggleDuration * durationMultiplier).SetEase(Ease.OutQuad);
+        }
+
+        IEnumerator DropdownAction(bool open, float durationMultiplier = 1)
+        {
+            float actionInterval = toggleDuration / itemTexts.Length;
+            actionInterval *= durationMultiplier;
+
+            if (open)
             {
-                for (int i = items.Count - 1; i >= 0; i--)
+                if (index >= itemTexts.Length) index = itemTexts.Length - 1;
+                if (index < 0) index = 0;
+                for (; index < itemTexts.Length; index++)
                 {
-                    items[i].Close();
-                    yield return new WaitForSeconds(toggleInterval);
+                    DropdownItem newItem = items[index] = Instantiate(itemPrefab, panel);
+                    newItem.root = this;
+                    newItem.startActionDuration = buttonActionDuration;
+                    newItem.SetText(itemTexts[index]);
+                    if (index + 1 < itemTexts.Length) yield return new WaitForSeconds(actionInterval);
                 }
+
+                if (index >= itemTexts.Length) index = itemTexts.Length - 1;
             }
+            else
+            {
+                if (index >= itemTexts.Length) index = itemTexts.Length - 1;
+                if (index < 0) index = 0;
+                for (; index >= 0; index--)
+                {
+                    if (items[index] != null) items[index].Close(buttonActionDuration);
+                    if (index - 1 >= 0) yield return new WaitForSeconds(actionInterval);
+                }
 
-            items.Clear();
-            SetState(state.Close);
+                if (index < 0) index = 0;
+            }
         }
 
-        public void SetType(string type)
+        void StopAction(bool goingOpen)
         {
-            if (IsState(state.Opening) || IsState(state.Closing)) return;
-            StartCoroutine(Close());
-            SetState(state.Closing);
-            text.text = type;
+            IsOpen = goingOpen;
+            if (dropdownActionCoroutine != null) StopCoroutine(dropdownActionCoroutine);
         }
 
-        bool IsState(state Comparator) => currntState == Comparator;
-        void SetState(state newState) => currntState = newState;
+        public void SetText(string type)
+        {
+            text.text = type;
+            StartClosing();
+        }
 
         private void OnDestroy() { if (DropdownManager.Instance) DropdownManager.Instance.RemoveDropdown(this); }
     }

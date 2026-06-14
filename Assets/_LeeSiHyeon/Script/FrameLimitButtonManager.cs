@@ -21,10 +21,7 @@ namespace LeeSihyeon
             }
             Instance = this;
 
-            if (vSyncToggle != null)
-            {
-                vSyncToggle.AddToggleListener(vSyncToggleSwitch);
-            }
+            if (vSyncToggle != null) vSyncToggle.AddToggleListener(vSyncToggleSwitch);
         }
 
         private void Start() => SetFrameLimit(FrameLimitLevel.fps60);
@@ -44,6 +41,11 @@ namespace LeeSihyeon
             }
 
             if (limit != FrameLimitLevel.VSync) lastLevel = limit;
+        }
+
+        private void OnDestroy()
+        {
+            if (vSyncToggle != null) vSyncToggle.RemoveToggleListener(vSyncToggleSwitch);
         }
     }
 }
