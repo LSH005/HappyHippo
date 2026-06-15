@@ -4203,6 +4203,133 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1007909783}
   m_CullTransparentMesh: 1
+--- !u!1 &1009687291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1009687292}
+  - component: {fileID: 1009687293}
+  m_Layer: 0
+  m_Name: ToastUIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1009687292
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009687291}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 996.64075, y: 647.2046, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1009687293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009687291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb34d20344e60547ba9afaeea0201af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ToastUIManager
+  toastMessege: {fileID: 1066280896191474079, guid: f28114e011df8694aa5747cfa8e2debe, type: 3}
+  canvas: {fileID: 804781294}
+  dialog:
+  - loopCount: 1
+    text: 
+    waitTime: 0.7887
+  - loopCount: 1
+    text: "2025137048 \uC774\uC2DC\uD604"
+    waitTime: 2
+  - loopCount: 1
+    text: "\uC124\uC815 \uD654\uBA74\uC744 \uAD6C\uC131\uD588\uC2B5\uB2C8\uB2E4!"
+    waitTime: 2
+  - loopCount: 1
+    text: "\uBC84\uD2BC\uC744 \uB20C\uB800\uC744 \uB54C \uB098\uC624\uB294 \uC560\uB2C8\uBA54\uC774\uC158\uC774
+      \uC788\uACE0"
+    waitTime: 2
+  - loopCount: 1
+    text: "\uBC84\uD2BC\uC5D0 \uC0C1\uD638\uC791\uC6A9\uB418\uB294 \uD1A0\uAE00 \uC2A4\uC704\uCE58\uB3C4
+      \uC788\uC2B5\uB2C8\uB2E4."
+    waitTime: 2
+  - loopCount: 1
+    text: "\uC624\uB978\uCABD\uC5D0\uB294 \uB4DC\uB86D\uB2E4\uC6B4 \uBA54\uB274\uC640 "
+    waitTime: 2
+  - loopCount: 1
+    text: "\uC2AC\uB77C\uC774\uB354\uAC00 \uC788\uC2B5\uB2C8\uB2E4."
+    waitTime: 2
+  - loopCount: 1
+    text: "\uC774 \uD1A0\uC2A4\uD2B8 \uBA54\uC2DC\uC9C0\uB294 \uBCF4\uC2DC\uB2E4\uC2DC\uD53C
+      \uC313\uC77C \uC218 \uC788\uC73C\uBA70"
+    waitTime: 2
+  - loopCount: 1
+    text: "\uBA87\uAC1C \uC313\uC774\uBA74 \uC989\uC2DC \uC0AC\uB77C\uC9D1\uB2C8\uB2E4"
+    waitTime: 2
+  - loopCount: 1
+    text: "\uBCF4\uC5EC\uB4DC\uB9BC"
+    waitTime: 2
+  - loopCount: 100
+    text: REEEEEEEEEEEEEE
+    waitTime: 0.02
+  - loopCount: 1
+    text: REEEEEEEEEEEEEE
+    waitTime: 2
+  - loopCount: 1
+    text: "\uC774\uAC8C \uC6D0\uB798 \uB098\uAC14\uB2E4\uAC00 \uB4E4\uC5B4\uC640\uC57C
+      \uD1A0\uC2A4\uD2B8\uC778\uC9C0"
+    waitTime: 2
+  - loopCount: 1
+    text: "\uC9C0\uAE08 \uC774\uAC83\uB3C4 \uD1A0\uC2A4\uD2B8\uB77C\uACE0 \uBD80\uB97C
+      \uC218"
+    waitTime: 2
+  - loopCount: 1
+    text: "\uC788\uB294\uC9C0\uB294 \uBAA8\uB974\uACA0\uC2B5\uB2C8\uB2E4"
+    waitTime: 3
+  - loopCount: 10
+    text: "\uC544 \uBAA8\uB974\uACA0\uB2E4"
+    waitTime: 0.1
+  - loopCount: 1
+    text: Hello, World!
+    waitTime: 2.5
+  - loopCount: 1
+    text: "\uC544 \uBC30\uACE0\uD30C\uC694"
+    waitTime: 2
+  - loopCount: 1
+    text: "\uD604\uC7AC \uC624\uC804 12\uC2DC 14\uBD84\uC774\uACE0\uC694"
+    waitTime: 2
+  - loopCount: 1
+    text: "\uB77C\uBA74 \uBA39\uC73C\uB7EC \uAC08 \uAC83 \uAC19\uC2B5\uB2C8\uB2E4"
+    waitTime: 2.5
+  - loopCount: 1
+    text: "\uCC38\uACE0\uB85C \uC885\uB958\uB294 \uC721\uAC1C\uC7A5\uC785\uB2C8\uB2E4"
+    waitTime: 0
+  data:
+    StartAnchoredPosition: {x: 0, y: 55}
+    EndAnchoredPosition: {x: 0, y: -5}
+    MoveDuration: 0.2
+    ShowTime: 5
+    FirstDisplacementSizeDelta: {x: 350, y: 30}
+    FirstDisplacementOffset: {x: 0, y: -55}
+    DisplacementOffset: {x: 0, y: -35}
+    DestroyOffset: {x: 0, y: -50}
+    DisplacementCharactersNumber: 12
+    DisplacementTextFontSize: 30
+    MaxAccumulation: 3
 --- !u!1 &1038068726
 GameObject:
   m_ObjectHideFlags: 0
@@ -8500,5 +8627,6 @@ SceneRoots:
   - {fileID: 54919832}
   - {fileID: 804781294}
   - {fileID: 157260287}
+  - {fileID: 1009687292}
   - {fileID: 769278059}
   - {fileID: 2073719454}

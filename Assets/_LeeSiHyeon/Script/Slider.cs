@@ -60,6 +60,7 @@ namespace LeeSihyeon
         public void OnPointerDown(PointerEventData eventData)
         {
             UpdateSliderFromPointer(eventData);
+            DropdownManager.Instance?.CloseAllDropdowns();
         }
 
         /// <summary> <see cref="IDragHandler"/>에 종속됨. 드래그 시 <see cref="UpdateSliderFromPointer"/> 호출 </summary>
