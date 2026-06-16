@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2f497c07a53483e45b3414f1235ef346
+guid: 489b1bbd47bc8524f9ba12539699e38f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4840248709427857181
-    second: Product Bar_0
+      213: 6608722119990942975
+    second: QuestBG_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 2048
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Product Bar_0
+      name: QuestBG_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2445
-        height: 428
+        width: 4320
+        height: 2472
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3e8720a817bf3dcb0800000000000000
-      internalID: -4840248709427857181
+      spriteID: ffc935de0c5e6bb50800000000000000
+      internalID: 6608722119990942975
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Product Bar_0: -4840248709427857181
+      QuestBG_0: 6608722119990942975
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
