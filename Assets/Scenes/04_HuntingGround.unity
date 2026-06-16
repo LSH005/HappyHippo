@@ -710,6 +710,143 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35628862}
   m_CullTransparentMesh: 1
+--- !u!1 &58979015
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 58979018}
+  - component: {fileID: 58979017}
+  - component: {fileID: 58979016}
+  m_Layer: 5
+  m_Name: Text (TMP) (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &58979016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58979015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 7806bcebc5db2b249a641dd2e1bec255, type: 2}
+  m_sharedMaterial: {fileID: -8250777278945813577, guid: 7806bcebc5db2b249a641dd2e1bec255, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 0, g: 1, b: 0.7727816, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 28
+  m_fontSizeBase: 28
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 1
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &58979017
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58979015}
+  m_CullTransparentMesh: 1
+--- !u!224 &58979018
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58979015}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2109389031}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 462, y: -101}
+  m_SizeDelta: {x: 1000, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &99484331
 GameObject:
   m_ObjectHideFlags: 0
@@ -10898,11 +11035,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad4241e43edc7764b994464b2dfcc1cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LeeHyunWoo.DelayTextButton
-  targetText: {fileID: 819178541}
-  message: "\uC785\uC7A5\uD558\uC5EC \uC804\uB9AC\uD488\uC744 \uBC1B\uC73C\uB824\uBA74
-    \uC9C0\uC5ED \uC784\uBB34\uC5D0 \uB3C4\uC804\uD574\uC57C \uD569\uB2C8\uB2E4."
-  delayTime: 1
+  offTargetText: {fileID: 819178541}
+  onTargetText: {fileID: 58979016}
+  messages:
+  - "\uC81C\uC791\uC790: \uC774\uD604\uC6B0"
+  - "\uD559\uBC88: 2023137004"
+  - "\uC0AC\uB0E5\uD130\uD654\uBA74 UI\uC5D0 \uB300\uD574 \uAC04\uB2E8\uD55C \uC124\uBA85\uB4DC\uB9AC\uACA0\uC2B5\uB2C8\uB2E4."
+  - "\uC67C\uCABD \uD328\uB110\uC740 \uC2A4\uD06C\uB864 \uAE30\uB2A5\uC744 \uB123\uC5C8\uC2B5\uB2C8\uB2E4."
+  - "\uB9C8\uC6B0\uC2A4 \uC67C\uCABD \uD074\uB9AD\uC744 \uB204\uB978 \uC0C1\uD0DC
+    \uB610\uB294"
+  - "\uB9C8\uC6B0\uC2A4 \uD720\uB85C \uC704\uC544\uB798\uB85C \uC774\uB3D9\uD560
+    \uC218 \uC788\uC2B5\uB2C8\uB2E4. "
+  - "\uB3C4\uC804 \uBC84\uD2BC\uC744 \uB204\uB974\uBA74"
+  - "\uC624\uB978\uCABD \uD558\uB2E8 \uCD1D \uC784\uBB34 \uC804\uB9AC\uD488 \uD328\uB110"
+  - "\uACBD\uD5D8\uCE58\uC640 \uACE8\uB4DC \uD14D\uC2A4\uD2B8\uAC00 \uBCC0\uACBD\uB429\uB2C8\uB2E4."
+  - "\uB610\uD55C \uC9C0\uB3C4\uB9F5\uC5D0 \uD018\uC2A4\uD2B8 \uC704\uCE58 \uC9C0\uC810
+    \uC544\uC774\uCF58\uC774 \uD45C\uC2DC\uB429\uB2C8\uB2E4."
+  - "\uB354\uBE14 \uB8E8\uD305\uCC3D\uC5D0 \uB3C4\uC804 \uBC84\uD2BC\uC744 \uB204\uB974\uBA74"
+  - "\uCD1D \uC784\uBB34 \uC804\uB9AC\uD488 \uC7AC\uD654\uAC00 \uB450 \uBC30 \uB429\uB2C8\uB2E4."
+  - "\uAC00\uC6B4\uB370 \uC0C1\uB2E8 \uC704\uCE58\uC5D0 \uB09C\uC774\uB3C4 \uBC84\uD2BC\uC774
+    \uC788\uC2B5\uB2C8\uB2E4."
+  - "\uAC01\uAC01\uC758 \uB09C\uC774\uB3C4 \uBC84\uD2BC\uC744 \uB204\uB974\uBA74"
+  - "\uC67C\uCABD \uD328\uB110\uC758 \uC788\uB294 \uC7AC\uD654\uC640"
+  - "\uCD1D \uC784\uBB34 \uC804\uB9AC\uD488 \uD328\uB110\uC758 \uC7AC\uD654\uB3C4
+    \uD568\uAED8 \uBCC0\uACBD\uB429\uB2C8\uB2E4."
+  - "\uC624\uB978\uCABD \uC0C1\uB2E8\uC758 X \uBC84\uD2BC\uC744 \uB204\uB974\uBA74"
+  - "\uBA54\uC778\uD654\uBA74\uC73C\uB85C \uB418\uB3CC\uC544 \uAC11\uB2C8\uB2E4."
+  - "\uC774\uC0C1\uC785\uB2C8\uB2E4."
+  changeInterval: 4
   startOn: 0
+  clearAfterCycle: 1
 --- !u!1 &1761846938
 GameObject:
   m_ObjectHideFlags: 0
@@ -14202,6 +14364,7 @@ RectTransform:
   - {fileID: 694930697}
   - {fileID: 468063305}
   - {fileID: 819178543}
+  - {fileID: 58979018}
   m_Father: {fileID: 1898217061}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}

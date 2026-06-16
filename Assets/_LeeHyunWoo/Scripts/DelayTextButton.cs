@@ -6,58 +6,144 @@ namespace LeeHyunWoo
 {
     public class DelayTextButton : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI targetText;
+        [Header("startOn = false일 때 출력할 Text")]
+        [SerializeField] private TextMeshProUGUI offTargetText;
 
-        [SerializeField] private string message = "텍스트 출력";
-        [SerializeField] private float delayTime = 1f;
+        [Header("startOn = true일 때 출력할 Text")]
+        [SerializeField] private TextMeshProUGUI onTargetText;
+
+        [Header("반복 출력할 텍스트들")]
+        [SerializeField] private string[] messages =
+        {
+            "텍스트 출력",
+        };
+
+        [SerializeField] private float changeInterval = 2f;
 
         [SerializeField] private bool startOn = false;
 
+        [SerializeField] private bool clearAfterCycle = true;
+
         private bool isOn;
+        private bool isPlayingCycle;
         private Coroutine textCoroutine;
+        private int currentIndex;
 
         private void Awake()
         {
             isOn = startOn;
+        }
 
-            if (targetText != null)
-                targetText.text = isOn ? "" : message;
+        private void OnEnable()
+        {
+            StartOneCycle();
+        }
+
+        private void OnDisable()
+        {
+            StopCycle();
+            ClearAllText();
         }
 
         public void OnClickToggleTextDelay()
         {
-            isOn = !isOn;
+            SetOn(!isOn);
+        }
 
+        public void SetOn(bool active)
+        {
+            bool previousState = isOn;
+            isOn = active;
+
+            if (isPlayingCycle)
+            {
+                ShowCurrentText();
+                return;
+            }
+
+            if (previousState && !isOn)
+            {
+                StartOneCycle();
+                return;
+            }
+
+            ClearAllText();
+        }
+
+        private void StartOneCycle()
+        {
+            if (isPlayingCycle)
+                return;
+
+            if (messages == null || messages.Length == 0)
+            {
+                ClearAllText();
+                return;
+            }
+
+            currentIndex = 0;
+            textCoroutine = StartCoroutine(PlayOneCycleRoutine());
+        }
+
+
+        private IEnumerator PlayOneCycleRoutine()
+        {
+            isPlayingCycle = true;
+
+            while (currentIndex < messages.Length)
+            {
+                ShowCurrentText();
+
+                yield return new WaitForSeconds(changeInterval);
+
+                currentIndex++;
+            }
+
+            currentIndex++;
+
+            isPlayingCycle = false;
+            textCoroutine = null;
+
+            if (clearAfterCycle)
+                ClearAllText();
+        }
+
+        private void StopCycle()
+        {
             if (textCoroutine != null)
             {
                 StopCoroutine(textCoroutine);
                 textCoroutine = null;
             }
 
-            if (isOn)
-            {
-                HideText();
-            }
-            else
-            {
-                textCoroutine = StartCoroutine(ShowTextDelay());
-            }
+            isPlayingCycle = false;
         }
 
-        private IEnumerator ShowTextDelay()
+        private void ShowCurrentText()
         {
-            yield return new WaitForSeconds(delayTime);
+            ClearAllText();
 
-            if (targetText != null)
-                targetText.text = message;
+            if (messages == null || messages.Length == 0)
+                return;
 
-            textCoroutine = null;
+            if (currentIndex < 0 || currentIndex >= messages.Length)
+                return;
+
+            TextMeshProUGUI currentTargetText = isOn ? onTargetText : offTargetText;
+
+            if (currentTargetText == null)
+                return;
+
+            currentTargetText.text = messages[currentIndex];
         }
 
-        private void HideText()
+        private void ClearAllText()
         {
-            if (targetText != null)
-                targetText.text = "";
+            if (offTargetText != null)
+                offTargetText.text = "";
+
+            if (onTargetText != null)
+                onTargetText.text = "";
         }
     }
 }
