@@ -51,6 +51,7 @@ public class SceneTransition : MonoBehaviour
         }
 
         SceneTransitionCurtain currentCurtain = Instantiate(curtain, canvasTransform);
+        currentCurtain.transform.SetAsLastSibling();
         currentCurtain.SetCurtainAlpha(0f);
         currentCurtain.SetCurtainAlpha(1f, fadeDuration);
         yield return new WaitForSeconds(fadeDuration);
@@ -67,20 +68,36 @@ public class SceneTransition : MonoBehaviour
 
         currentCurtain = Instantiate(curtain, canvasTransform);
         currentCurtain.SetCurtainAlpha(0f, fadeDuration);
-        Destroy(currentCurtain, fadeDuration);
+        currentCurtain.transform.SetAsLastSibling();
+        Destroy(currentCurtain.gameObject, fadeDuration);
     }
 
-    /// <summary> 씬에 존재하는 <see cref="Canvas"/>의 <see cref="Transform"/> 탐색 </summary>
+    /// <summary> 가장 앞에 표시되는 <see cref="CanvasGroup"/>이 없는 <see cref="Canvas"/>의 <see cref="Transform"/> 탐색 </summary>
     /// <param name="transform">찾으면 해당 객체의 <see cref="Transform"/>, 아니면 <see langword="null"/></param>
     /// <returns>캔버스가 존재하면 <see langword="true"/>, 아니면 <see langword="false"/></returns>
     bool TryGetCanvasTransform(out Transform transform)
     {
-        Canvas canvas = FindAnyObjectByType<Canvas>();
+        Canvas[] canvases = FindObjectsByType<Canvas>(FindObjectsSortMode.None);
 
-        if (canvas != null)
+        if (canvases != null && canvases.Length > 0)
         {
-            transform = canvas.transform;
-            return true;
+            Canvas foremostCanvas = null;
+
+            for (int i = 0; i < canvases.Length; i++)
+            {
+                if (canvases[i].GetComponent<CanvasGroup>() != null) continue; // CanvasGroup의 존재 예외
+
+                if (foremostCanvas == null || canvases[i].sortingOrder > foremostCanvas.sortingOrder)
+                {
+                    foremostCanvas = canvases[i];
+                }
+            }
+
+            if (foremostCanvas != null)
+            {
+                transform = foremostCanvas.transform;
+                return true;
+            }
         }
 
         transform = null;

@@ -30,4 +30,9 @@ public class SceneTransitionCurtain : MonoBehaviour
         color.a = alpha;
         image.color = color;
     }
+
+    private void OnDestroy()
+    {
+        image.DOKill();
+    }
 }
