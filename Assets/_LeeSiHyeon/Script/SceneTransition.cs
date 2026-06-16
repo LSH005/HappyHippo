@@ -9,6 +9,9 @@ namespace LeeSihyeon
         public static SceneTransition Instance { get; private set; }
         public SceneTransitionCurtain curtain;
         public float fadeDuration = 0.15f;
+        public static bool isTransitioning;
+        public static bool canTransition;
+        public static bool isLoading;
 
         private void Awake()
         {
@@ -18,6 +21,7 @@ namespace LeeSihyeon
                 return;
             }
             Instance = this;
+            isTransitioning = isLoading = false;
             DontDestroyOnLoad(gameObject);
         }
 
@@ -36,6 +40,8 @@ namespace LeeSihyeon
                 return;
             }
 
+            if (isTransitioning) return;
+            isTransitioning = true;
             StartCoroutine(TransitionCoroutine(sceneName));
         }
 
@@ -52,13 +58,19 @@ namespace LeeSihyeon
                 yield break;
             }
 
+            isLoading = true;
+            canTransition = false;
+            StartCoroutine(LoadSceneAsyncCoroutine(sceneName));
+            yield return null;  // 비동기 로딩 시작 시 렉이 걸려서 페이드 인이 제데로 안 보이는 문제를 해결하기 위한 프레임 대기
+
             SceneTransitionCurtain currentCurtain = Instantiate(curtain, canvasTransform);
             currentCurtain.transform.SetAsLastSibling();
             currentCurtain.SetCurtainAlpha(0f);
             currentCurtain.SetCurtainAlpha(1f, fadeDuration);
             yield return new WaitForSeconds(fadeDuration);
-            SceneManager.LoadScene(sceneName);
-            yield return null;
+
+            canTransition = true;
+            yield return new WaitUntil(() => !isLoading);
 
             if (TryGetCanvasTransform(out Transform nextCanvasTransform)) canvasTransform = nextCanvasTransform;
             else
@@ -69,9 +81,29 @@ namespace LeeSihyeon
             }
 
             currentCurtain = Instantiate(curtain, canvasTransform);
+            yield return null;
             currentCurtain.SetCurtainAlpha(0f, fadeDuration);
             currentCurtain.transform.SetAsLastSibling();
             Destroy(currentCurtain.gameObject, fadeDuration);
+
+            yield return new WaitForSeconds(fadeDuration);
+            isTransitioning = false;
+        }
+
+        /// <summary> <paramref name="sceneName"/> 을 이름으로 하는 씬을 비동기(백그라운드) 로딩 </summary>
+        /// <param name="sceneName"> 전환할 씬의 이름 </param>
+        private IEnumerator LoadSceneAsyncCoroutine(string sceneName)
+        {
+            AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
+            operation.allowSceneActivation = false;
+
+            while (operation.progress < 0.9f) yield return null;
+            while (!canTransition) yield return null;
+
+            operation.allowSceneActivation = true;
+
+            while (!operation.isDone) yield return null;
+            isLoading = false;
         }
 
         /// <summary> 가장 앞에 표시되는 <see cref="CanvasGroup"/>이 없는 <see cref="Canvas"/>의 <see cref="Transform"/> 탐색 </summary>
