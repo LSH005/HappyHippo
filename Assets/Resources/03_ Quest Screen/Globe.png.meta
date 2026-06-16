@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: 8e3a7fbc4e11bbe4abb9c66c49885f4a
+guid: ca7a709df22e6c74884dbc3f89b6034e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5703388324750154721
-    second: icon5_0
+      213: 1669719753867214406
+    second: Globe_0
+  - first:
+      213: 7616068715323490751
+    second: Globe_1
+  - first:
+      213: -1983365752915248383
+    second: Globe_2
+  - first:
+      213: -2630145041508388312
+    second: Globe_3
+  - first:
+      213: 2057672841805629609
+    second: Globe_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +125,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: icon5_0
+      name: Globe_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 89
-        height: 89
+        x: 17
+        y: 8
+        width: 64
+        height: 78
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +140,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1ebd7d8a671862f40800000000000000
-      internalID: 5703388324750154721
+      spriteID: 64e35b305490c2710800000000000000
+      internalID: 1669719753867214406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Globe_1
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 18
+        width: 24
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb182d91526b1b960800000000000000
+      internalID: 7616068715323490751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Globe_2
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 11
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10bbfc52b5ba974e0800000000000000
+      internalID: -1983365752915248383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Globe_3
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 11
+        width: 45
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82233251509df7bd0800000000000000
+      internalID: -2630145041508388312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Globe_4
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 11
+        width: 18
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a80bcf2c825e8c10800000000000000
+      internalID: 2057672841805629609
       vertices: []
       indices: 
       edges: []
@@ -148,7 +248,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      icon5_0: 5703388324750154721
+      Globe_0: 1669719753867214406
+      Globe_1: 7616068715323490751
+      Globe_2: -1983365752915248383
+      Globe_3: -2630145041508388312
+      Globe_4: 2057672841805629609
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
