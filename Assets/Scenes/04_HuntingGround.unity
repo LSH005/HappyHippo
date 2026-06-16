@@ -7253,6 +7253,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LeeHyunWoo.UpdateDataButton
   addGold: 3000
   addExp: 50000
+  goldRewardText: {fileID: 163452797}
+  expRewardText: {fileID: 1534253217}
   isAddOn: 0
   isDoubleOn: 0
 --- !u!1 &1091052689
@@ -9003,7 +9005,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 123.9, y: -310.8}
-  m_SizeDelta: {x: 80, y: 40}
+  m_SizeDelta: {x: 100, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1427127759
 MonoBehaviour:
@@ -10344,6 +10346,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LeeHyunWoo.UpdateDataButton
   addGold: 30000
   addExp: 30000
+  goldRewardText: {fileID: 1680680593}
+  expRewardText: {fileID: 1490504490}
   isAddOn: 0
   isDoubleOn: 0
 --- !u!1 &1680680591
@@ -10878,6 +10882,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LeeHyunWoo.UpdateDataButton
   addGold: 10000
   addExp: 100000
+  goldRewardText: {fileID: 1736315351}
+  expRewardText: {fileID: 455217412}
   isAddOn: 0
   isDoubleOn: 0
 --- !u!114 &1745822447
@@ -11161,16 +11167,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LeeHyunWoo.DifficultyButton
   buttons:
-  - outline: {fileID: 2039905516}
+  - difficultyType: 0
+    outline: {fileID: 2039905516}
     image: {fileID: 2039905513}
     text: {fileID: 1798309639}
-  - outline: {fileID: 1797565053}
+  - difficultyType: 1
+    outline: {fileID: 1797565053}
     image: {fileID: 1797565050}
     text: {fileID: 1320489550}
-  - outline: {fileID: 2131284810}
+  - difficultyType: 2
+    outline: {fileID: 2131284810}
     image: {fileID: 2131284807}
     text: {fileID: 460125050}
-  startIndex: -1
+  startIndex: 0
+  normalMultiplier: 1
+  hardMultiplier: 3.5
+  veryHardMultiplier: 8
+  levelText: {fileID: 1795083337}
+  normalLevelText: 35
+  hardLevelText: 45
+  veryHardLevelText: 65
   selectedImageColor: {r: 0.29803923, g: 0.16470589, b: 0.25490198, a: 1}
   selectedTextColor: {r: 1, g: 0.34901962, b: 0.101960786, a: 1}
   normalImageColor: {r: 0.29559743, g: 0.16267152, b: 0.24159628, a: 1}
@@ -11234,7 +11250,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 48
+  m_text: 35
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bab1671d014be8a45b167cb7c28d7874, type: 2}
   m_sharedMaterial: {fileID: 611159659790005424, guid: bab1671d014be8a45b167cb7c28d7874, type: 2}
@@ -11407,6 +11423,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: LeeHyunWoo.DifficultyUI, Assembly-CSharp
+        m_MethodName: OnClickHard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -13606,6 +13634,7 @@ MonoBehaviour:
   expText: {fileID: 1427127759}
   baseGold: 0
   baseExp: 0
+  difficultyAddMultiplier: 0
 --- !u!4 &2024931662
 Transform:
   m_ObjectHideFlags: 0
@@ -13718,6 +13747,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: LeeHyunWoo.DifficultyUI, Assembly-CSharp
+        m_MethodName: OnClickNormal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2039905513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13822,7 +13863,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 240.5, y: -310.8}
-  m_SizeDelta: {x: 70, y: 40}
+  m_SizeDelta: {x: 100, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2070275032
 MonoBehaviour:
@@ -14383,6 +14424,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LeeHyunWoo.UpdateDataButton
   addGold: 0
   addExp: 0
+  goldRewardText: {fileID: 0}
+  expRewardText: {fileID: 0}
   isAddOn: 0
   isDoubleOn: 0
 --- !u!225 &2117162652
@@ -14491,6 +14534,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: LeeHyunWoo.DifficultyUI, Assembly-CSharp
+        m_MethodName: OnClickVeryHard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
