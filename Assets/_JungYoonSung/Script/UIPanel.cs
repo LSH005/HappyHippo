@@ -13,33 +13,56 @@ namespace QuestScene_JungYoonSung_2023137028
 
         private CanvasGroup canvasGroup;
         private RectTransform rectTransform;
+        private Vector3 originalScale;
 
         void Awake()
         {
             canvasGroup = GetComponent<CanvasGroup>();
             rectTransform = GetComponent<RectTransform>();
+            originalScale = Vector3.one;
         }
 
         public void Show()
         {
+            rectTransform.DOKill();
+            canvasGroup.DOKill();
+
             gameObject.SetActive(true);
+
+            canvasGroup.blocksRaycasts = true;
             canvasGroup.alpha = 0f;
-            rectTransform.localScale = Vector3.one * 0.8f;
-            canvasGroup.DOFade(1f, duration);
-            rectTransform.DOScale(Vector3.one, duration).SetEase(showEase);
+            rectTransform.localScale = originalScale * 0.5f;
+
+            canvasGroup.DOFade(1f, duration).SetUpdate(true);
+            rectTransform.DOScale(originalScale, duration).SetEase(showEase).SetUpdate(true);
         }
 
         public void Hide()
         {
-            canvasGroup.DOFade(0f, duration);
-            rectTransform.DOScale(Vector3.one * 0.8f, duration).SetEase(hideEase)
-                .OnComplete(() => gameObject.SetActive(false));
+            rectTransform.DOKill();
+            canvasGroup.DOKill();
+
+            canvasGroup.blocksRaycasts = false;
+
+            canvasGroup.DOFade(0f, duration).SetUpdate(true);
+            rectTransform.DOScale(Vector3.zero, duration).SetEase(hideEase).SetUpdate(true)
+                .OnComplete(() =>
+                {
+                    gameObject.SetActive(false);
+                    rectTransform.localScale = originalScale;
+                });
+        }
+
+        private void OnDisable()
+        {
+            rectTransform.DOKill();
+            canvasGroup.DOKill();
         }
 
         private void OnDestroy()
         {
-            canvasGroup.DOKill();
             rectTransform.DOKill();
+            canvasGroup.DOKill();
         }
     }
 }
