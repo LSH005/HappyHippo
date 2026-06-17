@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5c207249431d1354398e33e0871e4fa8
+guid: 5ea382216e3041c4caaa4f2c10fa7734
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1986418236744867937
-    second: "\uC544\uC774\uCF58 11_0"
+      213: -3581823954300197699
+    second: item_coin_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\uC544\uC774\uCF58 11_0"
+      name: item_coin_0
       rect:
         serializedVersion: 2
-        x: 62
-        y: 35
-        width: 377
-        height: 381
+        x: 26
+        y: 30
+        width: 961
+        height: 730
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1602980acdc219b10800000000000000
-      internalID: 1986418236744867937
+      spriteID: db4a3f3471eca4ec0800000000000000
+      internalID: -3581823954300197699
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "\uC544\uC774\uCF58 11_0": 1986418236744867937
+      item_coin_0: -3581823954300197699
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
