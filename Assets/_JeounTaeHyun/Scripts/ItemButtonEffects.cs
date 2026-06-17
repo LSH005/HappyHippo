@@ -17,6 +17,7 @@ namespace jeountaehyun
         {
 
             originalScale = transform.localScale;
+           
         }
 
 
