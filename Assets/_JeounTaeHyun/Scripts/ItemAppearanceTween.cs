@@ -1,17 +1,20 @@
 using UnityEngine;
 using DG.Tweening;
 
-public class ItemAppearanceTween : MonoBehaviour
+namespace jeountaehyun
 {
-    void OnEnable()
+    public class ItemAppearanceTween : MonoBehaviour
     {
-       
-        Vector3 targetPos = transform.localPosition;
-        transform.localPosition = targetPos + new Vector3(0, -50f, 0);
+        void OnEnable()
+        {
 
-        
-        transform.DOLocalMove(targetPos, 0.3f).SetEase(Ease.OutCubic);
+            Vector3 targetPos = transform.localPosition;
+            transform.localPosition = targetPos + new Vector3(0, -50f, 0);
 
-      
+
+            transform.DOLocalMove(targetPos, 0.3f).SetEase(Ease.OutCubic);
+
+
+        }
     }
 }
