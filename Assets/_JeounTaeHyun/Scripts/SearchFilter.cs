@@ -3,31 +3,35 @@ using UnityEngine.UI;
 using TMPro; 
 using System.Collections.Generic;
 
-public class SearchFilter : MonoBehaviour
+
+namespace jeountaehyun
 {
-    [Header("UI 연결")]
-    public TMP_InputField searchInput; 
-    public Transform contentParent;   
-
-    private void Start()
+    public class SearchFilter : MonoBehaviour
     {
-        // 검색바에 글자를 칠 때마다 필터링 함수 실행
-        searchInput.onValueChanged.AddListener(FilterItems);
-    }
+        
+        public TMP_InputField searchInput;
+        public Transform contentParent;
 
-    private void FilterItems(string searchText)
-    {
-        searchText = searchText.ToLower(); 
-
-        foreach (Transform item in contentParent)
+        private void Start()
         {
             
-            TextMeshProUGUI itemName = item.GetComponentInChildren<TextMeshProUGUI>();
+            searchInput.onValueChanged.AddListener(FilterItems);
+        }
 
-            if (itemName != null)
+        private void FilterItems(string searchText)
+        {
+            searchText = searchText.ToLower();
+
+            foreach (Transform item in contentParent)
             {
-                bool isMatch = itemName.text.ToLower().Contains(searchText);
-                item.gameObject.SetActive(isMatch); // 포함되면 보여주고, 아니면 숨김
+
+                TextMeshProUGUI itemName = item.GetComponentInChildren<TextMeshProUGUI>();
+
+                if (itemName != null)
+                {
+                    bool isMatch = itemName.text.ToLower().Contains(searchText);
+                    item.gameObject.SetActive(isMatch); // 포함되면 보여주고, 아니면 숨김
+                }
             }
         }
     }

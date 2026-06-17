@@ -1,44 +1,48 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using DG.Tweening; 
+using DG.Tweening;
 
-public class ItemButtonEffects : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+
+namespace jeountaehyun
 {
-    [Header("¼³Á¤")]
-    [SerializeField] private float shrinkScale = 0.95f; 
-    [SerializeField] private float duration = 0.1f;    
-
-    private Vector3 originalScale;
-
-    void Start()
+    public class ItemButtonEffects : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
-        
-        originalScale = transform.localScale;
-    }
+        [SerializeField] private float shrinkScale = 0.95f;
+        [SerializeField] private float duration = 0.1f;
 
-    
-    public void OnPointerDown(PointerEventData eventData)
-    {
-       
-        transform.DOKill();
+        private Vector3 originalScale;
 
-        
-        transform.DOScale(originalScale * shrinkScale, duration).SetEase(Ease.OutQuad);
-    }
+        void Start()
+        {
 
-    
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        transform.DOKill();
+            originalScale = transform.localScale;
+        }
 
-        
-        transform.DOScale(originalScale, duration * 1.5f).SetEase(Ease.OutBack);
-    }
 
-   
-    void OnDestroy()
-    {
-        transform.DOKill();
+        public void OnPointerDown(PointerEventData eventData)
+        {
+
+            transform.DOKill();
+
+
+            transform.DOScale(originalScale * shrinkScale, duration).SetEase(Ease.OutQuad);
+        }
+
+
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            transform.DOKill();
+
+
+            transform.DOScale(originalScale, duration * 1.5f).SetEase(Ease.OutBack);
+        }
+
+
+        void OnDestroy()
+        {
+            transform.DOKill();
+        }
     }
 }
+

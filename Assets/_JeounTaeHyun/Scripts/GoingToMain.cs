@@ -2,11 +2,15 @@ using LeeSihyeon;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GoingToMain : MonoBehaviour
+namespace jeountaehyun
 {
-    public void GoToMainScene()
+    public class GoingToMain : MonoBehaviour
     {
-        SceneTransition.Instance.TransitionToScene("01_Main");
+        public void GoToMainScene()
+        {
+            SceneTransition.Instance.TransitionToScene("01_Main");
 
+        }
     }
 }
+
