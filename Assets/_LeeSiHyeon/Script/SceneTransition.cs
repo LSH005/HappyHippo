@@ -13,6 +13,8 @@ namespace LeeSihyeon
         public static bool canTransition;
         public static bool isLoading;
 
+        string LastSceneName;
+
         private void Awake()
         {
             if (Instance != null)
@@ -23,6 +25,14 @@ namespace LeeSihyeon
             Instance = this;
             isTransitioning = isLoading = false;
             DontDestroyOnLoad(gameObject);
+        }
+
+        /// <summary> 바로 이전에 있던 Scene으로 전환 </summary>
+        public void TransitionToLastScene()
+        {
+            if (isTransitioning) return;
+            if (string.IsNullOrEmpty(LastSceneName)) LastSceneName = GetSceneName();
+            TransitionToScene(LastSceneName);
         }
 
         /// <summary> 페이드 효과와 함께 Scene 전환 </summary>
@@ -42,6 +52,7 @@ namespace LeeSihyeon
 
             if (isTransitioning) return;
             isTransitioning = true;
+            LastSceneName = GetSceneName();
             StartCoroutine(TransitionCoroutine(sceneName));
         }
 
@@ -156,5 +167,7 @@ namespace LeeSihyeon
 
             return false;
         }
+
+        string GetSceneName() => SceneManager.GetActiveScene().name;
     }
 }
