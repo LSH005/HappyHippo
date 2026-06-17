@@ -52,3 +52,4 @@ MonoBehaviour:
   _panelSettingsAsset: {fileID: 11400000, guid: 1a25235bc8c178f4786ac2030a657ef2, type: 2}
   _renderMode: 0
   _sortOrder: 100
+  _logResolutionChanges: 0
