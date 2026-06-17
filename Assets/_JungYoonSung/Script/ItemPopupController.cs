@@ -1,13 +1,13 @@
 using UnityEngine;
 using DG.Tweening;
 
-namespace Scene_Quest_Á¤À±¼º_2023137028
+namespace QuestScene_JungYoonSung_2023137028
 {
     public class ItemPopupController : MonoBehaviour
     {
         [Header("Target UI")]
-        [SerializeField] private GameObject itemDetailPopup; // ¶ç¿ï »ó¼¼ ¼³¸í ÆË¾÷ ¸ÅÄª
-        [SerializeField] private float duration = 0.2f;      // ÆË¾÷ ¿¬Ãâ ½Ã°£
+        [SerializeField] private GameObject itemDetailPopup;
+        [SerializeField] private float duration = 0.2f;     
 
         private Vector3 originalScale;
 

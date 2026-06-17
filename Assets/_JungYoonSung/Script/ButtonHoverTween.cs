@@ -1,8 +1,8 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-using DG.Tweening; 
+using DG.Tweening;
 
-namespace Scene_Quest_Á¤À±¼º_2023137028
+namespace QuestScene_JungYoonSung_2023137028
 {
     public class ButtonHoverTween : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-namespace Scene_Quest_Á¤À±¼º_2023137028
+namespace QuestScene_JungYoonSung_2023137028
 {
     public class DimController : MonoBehaviour
     {
