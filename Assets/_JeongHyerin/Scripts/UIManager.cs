@@ -1,10 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using TMPro;
-using TMPro.EditorUtilities;
-using System;
 
 namespace JeongHyerin
 {
@@ -61,7 +57,7 @@ namespace JeongHyerin
         }
         public void LoadMainScene()
         {
-            SceneManager.LoadScene("01_Main");
+            LeeSihyeon.SceneTransition.Instance.TransitionToScene("01_Main");
         }
         public void OnClickIcon(int index)
         {

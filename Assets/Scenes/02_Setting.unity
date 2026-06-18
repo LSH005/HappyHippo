@@ -4317,6 +4317,12 @@ MonoBehaviour:
     waitTime: 2.5
   - loopCount: 1
     text: "\uCC38\uACE0\uB85C \uC885\uB958\uB294 \uC721\uAC1C\uC7A5\uC785\uB2C8\uB2E4"
+    waitTime: 3
+  - loopCount: 1
+    text: "\uC73C\uC545!!!! \uB0B4\uBAB8\uC774!!!!!!"
+    waitTime: 1.25
+  - loopCount: 1
+    text: "\uC721!!\uAC1C!!\uC7A5!!\uC774!!\uB41C!!\uB2E4!!!"
     waitTime: 0
   data:
     StartAnchoredPosition: {x: 0, y: 55}

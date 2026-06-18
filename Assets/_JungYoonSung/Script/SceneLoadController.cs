@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace QuestScene_JungYoonSung_2023137028
 {
@@ -12,7 +11,7 @@ namespace QuestScene_JungYoonSung_2023137028
         {
             if (!string.IsNullOrEmpty(targetSceneName))
             {
-                SceneManager.LoadScene(targetSceneName);
+                LeeSihyeon.SceneTransition.Instance.TransitionToScene(targetSceneName);
             }
         }
     }
