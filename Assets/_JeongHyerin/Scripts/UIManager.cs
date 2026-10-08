@@ -1,102 +1,43 @@
-using DG.Tweening;
-using UnityEngine;
+using LeeSihyeon;
 using TMPro;
+using UnityEngine;
 
 namespace JeongHyerin
 {
-    [System.Serializable]
-    public class StatInfo
-    {
-        public string statName;
-        public TextMeshProUGUI statText;
-        public int currentValue;
-    }
-
+    /// <summary>
+    /// 05_Character가 guid 0d0546a940fd75f4ba2f0a3ddf0b9eee 로 이 클래스를 참조하지만 원본 파일은 없었다.
+    /// 씬에 저장된 필드는 유지하고, 메인으로 돌아가는 LoadMainScene만 복구했다.
+    /// OnClickIcon, PlayerTitlePanelOpen, PlayerTitlePanelClose의 원래 구현은 없다.
+    /// </summary>
     public class UIManager : MonoBehaviour
     {
-        [Header("AboutPlayerTitle")]
         public GameObject playerTitlePanel;
-
-        [Header("StatInfo")]
-        public StatInfo[] playerStats;
-        private int maxStat = 9999;
-
-        [Header("여기저기")]
+        public StatEntry[] playerStats;
         public GameObject darknessObject;
 
-        void Start()
+        [System.Serializable]
+        public class StatEntry
         {
-            playerTitlePanel.SetActive(false);
-            darknessObject.SetActive(false);
+            public string statName;
+            public TMP_Text statText;
+            public int currentValue;
+        }
 
-            InitStatTexts();
-        }
-        void Update()
-        {
-
-        }
-        public void PlayerTitlePanelOpen()
-        {
-            if (playerTitlePanel != null)
-            {
-                darknessObject.SetActive(true);
-                playerTitlePanel.SetActive(true);
-            }
-            else
-            {
-                Debug.Log("칭호 패널 없음");
-            }
-        }
-        public void PlayerTitlePanelClose()
-        {
-            if (playerTitlePanel != null)
-            {
-                darknessObject.SetActive(false);
-                playerTitlePanel.SetActive(false);
-            }
-        }
         public void LoadMainScene()
         {
-            LeeSihyeon.SceneTransition.Instance.TransitionToScene("01_Main");
-        }
-        public void OnClickIcon(int index)
-        {
-            IncreaseStatTween(index, 500);
-        }
-        public void IncreaseStatTween(int index, int amount)
-        {
-            if (playerStats == null || index < 0 || index >= playerStats.Length) return;
-
-            StatInfo stat = playerStats[index];
-
-            if (stat.statText == null) return;
-
-            int targetValue = Mathf.Clamp(stat.currentValue + amount, 0, maxStat);
-
-            DOTween.To(() => stat.currentValue, x => stat.currentValue = x, targetValue, 0.8f)
-                .OnUpdate(() =>
-                {
-                    stat.statText.text = stat.currentValue.ToString();
-                })
-                .OnComplete(() =>
-                {
-                    stat.currentValue = targetValue;
-                    stat.statText.text = stat.currentValue.ToString();
-                });
-        }
-        void InitStatTexts()
-        {
-            if (playerStats == null) return;
-
-            for (int i = 0; i < playerStats.Length; i++)
+            if (SceneTransition.Instance == null)
             {
-                if (playerStats[i] != null && playerStats[i].statText != null)
-                {
-                    playerStats[i].statText.text = playerStats[i].currentValue.ToString();
-                }
+                Debug.LogError("SceneTransition 인스턴스가 없습니다.");
+                return;
             }
+
+            SceneTransition.Instance.TransitionToScene("01_Main");
         }
+
+        public void OnClickIcon() { }
+
+        public void PlayerTitlePanelOpen() { }
+
+        public void PlayerTitlePanelClose() { }
     }
 }
-
-

@@ -20,7 +20,14 @@ namespace LeeSihyeon
             alpha = Mathf.Clamp01(alpha);
 
             if (duration <= 0.0f) SetImageAlpha(alpha);
-            else image.DOFade(alpha, duration);
+            else image.DOFade(alpha, duration).SetUpdate(true);
+        }
+
+        /// <summary> 전환 중에만 클릭을 막는다. </summary>
+        public void SetBlocking(bool blocking)
+        {
+            if (image == null) return;
+            image.raycastTarget = blocking;
         }
 
         /// <summary> <see cref="image"/> 의 알파값을 <paramref name="alpha"/>로 즉시 설정 </summary>

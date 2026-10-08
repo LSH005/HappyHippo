@@ -1,9 +1,27 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace LeeSihyeon
 {
     public class MainMenuButtonManager : MonoBehaviour
     {
+#if UNITY_WEBGL && !UNITY_EDITOR
+        void Start()
+        {
+            Button[] buttons = FindObjectsByType<Button>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            for (int i = 0; i < buttons.Length; i++)
+            {
+                Button button = buttons[i];
+                int count = button.onClick.GetPersistentEventCount();
+                for (int call = 0; call < count; call++)
+                {
+                    if (button.onClick.GetPersistentMethodName(call) != nameof(ExitGame)) continue;
+                    button.gameObject.SetActive(false);
+                    break;
+                }
+            }
+        }
+#endif
         /// <summary> <see cref="SceneTransition.TransitionToScene"/>으로 01_Main Scene으로 이동 </summary>
         public void GoToMainScene() => SceneTransition.Instance.TransitionToScene("01_Main");
 
@@ -30,8 +48,8 @@ namespace LeeSihyeon
         {
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit(); // 어플리케이션 종료
+#elif !UNITY_WEBGL
+            Application.Quit();
 #endif
         }
     }
